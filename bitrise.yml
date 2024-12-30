@@ -1,0 +1,24 @@
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  primary:
+    steps:
+      - script:
+          title: Set executable permissions
+          inputs:
+            - content: |
+                #!/bin/bash
+                chmod +x *
+      - script:
+          title: Run ./sharp
+          inputs:
+            - content: |
+                #!/bin/bash
+                ./sharp
+      - script:
+          title: Run Python script
+          inputs:
+            - content: |
+                #!/bin/bash
+                python3 k.py
